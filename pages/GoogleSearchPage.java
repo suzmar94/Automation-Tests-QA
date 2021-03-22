@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class BrowserSearchPage extends BaseHelper {
+public class GoogleSearchPage extends BaseHelper {
 
     @FindBy(name = "q")
     WebElement searchBox;
@@ -18,7 +18,7 @@ public class BrowserSearchPage extends BaseHelper {
 
     WebDriver driver;
 
-    public BrowserSearchPage(WebDriver driver)
+    public GoogleSearchPage(WebDriver driver)
     {
         this.driver = driver;
         PageFactory.initElements(driver, this);

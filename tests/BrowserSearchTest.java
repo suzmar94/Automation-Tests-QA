@@ -5,17 +5,15 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.BrowserSearchPage;
-import pages.HerokuappLoginPage;
+import pages.GoogleSearchPage;
+import pages.YahooSearchPage;
 
-public class BrowserSearchTest extends BaseTest
-{
+public class BrowserSearchTest extends BaseTest {
     @Test
-    public void googleSearchTest() throws InterruptedException
-    {
+    public void googleSearchTest() throws InterruptedException {
 
         //mora page da se "uveze" pa pravimo objekat
-        BrowserSearchPage searchPage = new BrowserSearchPage(driver);
+        GoogleSearchPage searchPage = new GoogleSearchPage(driver);
         searchPage.searchingWordComtrade();
 
         //Proveriti da postoji pojam "Comtrade" na stranici sa rezultatima
@@ -30,22 +28,14 @@ public class BrowserSearchTest extends BaseTest
 
     @Test
     public void yahooSearchTest() throws InterruptedException {
-        //Otici na Yahoo homepage
-        driver.get("https://www.yahoo.com/");
 
-        //Upisati "Comtrade" u polje za pretragu
-        WebElement searchBox = driver.findElement(By.name("p"));
-        searchBox.sendKeys("Comtrade");
-
-        //Kliknuti na "Yahoo search" lupu
-        WebElement searchButton;
-        searchButton = driver.findElement(By.id("ybar-search"));
-        searchButton.click();
+        YahooSearchPage searchYahoo = new YahooSearchPage(driver);
+        searchYahoo.yahooSearchingWord();
 
         //Proveriti da postoji pojam "Comtrade" na stranici sa rezultatima
         wdWait.until(ExpectedConditions.presenceOfElementLocated(By.id("results")));
         WebElement searchResults = driver.findElement(By.id("results"));
-        Assert.assertTrue("Search term is not found",
+        Assert.assertTrue("Message if test fails:",
                 searchResults.getText().contains("Comtrade"));
 
         //sleep ostavljen zbog vizuelne potvrde
