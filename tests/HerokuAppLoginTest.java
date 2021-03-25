@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.HerokuappLoginPage;
 
-public class HerokuAppTest extends BaseTest {
+public class HerokuAppLoginTest extends BaseTest {
 
     @Test
     public void loggingInWIthValidCredentials() throws InterruptedException {
